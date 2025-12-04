@@ -115,7 +115,7 @@ const editItem = (data) => {
     })
 
     // Update the heading to indicate edit mode
-    formHeading.textContent = '🐈 Edit Cat'
+    formHeading.textContent = '📚 Edit Session'
 
     // Show the popover
     formPopover.showPopover()
@@ -123,7 +123,7 @@ const editItem = (data) => {
 
 // Delete item
 const deleteItem = async (id) => {
-    if (!confirm('Are you sure you want to delete this cat?')) {
+    if (!confirm('Are you sure you want to delete this session?')) {
         return
     }
 
@@ -150,18 +150,14 @@ const deleteItem = async (id) => {
 }
 
 
-const calendarWidget = (date) => {
-    if (!date) return ''
-    const month = new Date(date).toLocaleString("en-CA", { month: 'short', timeZone: "UTC" })
-    const day = new Date(date).toLocaleString("en-CA", { day: '2-digit', timeZone: "UTC" })
-    const year = new Date(date).toLocaleString("en-CA", { year: 'numeric', timeZone: "UTC" })
-    return ` <div class="calendar">
-                <div class="born"><img src="./assets/birthday.svg" /></div>
-                <div class="month">${month}</div>
-                <div class="day">${day}</div> 
-                <div class="year">${year}</div>
-            </div>`
-
+const formatDate = (date) => {
+    if (!date) return 'N/A'
+    return new Date(date).toLocaleDateString("en-CA", { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        timeZone: "UTC" 
+    })
 }
 
 // Render a single item
@@ -172,57 +168,40 @@ const renderItem = (item) => {
 
     const template = /*html*/`  
     <div class="item-heading">
-        <h3> ${item.name} </h3>
-        <div class="microchip-info">
-            <img src="./assets/chip.svg" /> ${item.microchip || '<i>???</i>'} 
-        </div>  
+        <h3>${item.className}</h3>
+        <div class="subject-type">${item.subjectType}</div>
     </div>
-    <div class="item-info"> 
-        <div class="item-icon" style="
-            background: linear-gradient(135deg, 
-            ${item.primaryColor} 0%, 
-            ${item.primaryColor} 40%, 
-            ${item.secondaryColor} 60%, 
-            ${item.secondaryColor} 100%); 
-        ">
-        </div> 
-        <div class="stats">
-            <div class="stat">
-                <span>Playfulness</span>
-                <meter max="10" min="0" value="${item.playfulness || 0}"></meter> 
-            </div>
-            <div class="stat">
-                <span>Appetite</span>
-                <meter max="10" min="0" value="${item.appetite || 0}"></meter> 
-            </div>
-        </div> 
-            
-         ${calendarWidget(item.birthDate)}
-    </div>
-        
-    <div class="item-info">  
-        <section class="breed" style="${item.breed ? '' : 'display:none;'}">  
-            <img src="./assets/ribbon.svg" />  ${item.breed}
-        </section>
-        <section class="food" style="${item.food ? '' : 'display:none;'}">
-             <img src="./assets/${item.food}.svg" /> <span>${item.food} food</span>
-        </section> 
-        <section class="adoption">
-            <img src="./assets/${item.isAdopted ? 'adopted' : 'paw'}.svg" />
-            ${item.isAdopted ? 'Adopted' : 'Available'}
-        </section> 
+    
+    <div class="item-info">
+        <div class="stat">
+            <strong>Date:</strong> ${formatDate(item.date)}
+        </div>
+        <div class="stat">
+            <strong>Start Time:</strong> ${item.startTime}
+        </div>
     </div>
 
-    <section class="description" style="${item.description ? '' : 'display:none;'}">  
-        <p>${item.description}</p>
+    <div class="item-info">
+        <div class="stat">
+            <strong>Time Estimate:</strong> ${item.timeEstimateH}h
+        </div>
+        <div class="stat">
+            <strong>Productive Time:</strong> ${item.productiveTimeH}h
+        </div>
+        <div class="stat">
+            <strong>Distracted Time:</strong> ${item.distractedTimeH}h
+        </div>
+    </div>
+
+    <section class="session-goal">
+        <strong>Session Goal:</strong>
+        <p>${item.sessionGoal}</p>
     </section>
 
-        
-           
-        <div class="item-actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-        </div>
+    <div class="item-actions">
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+    </div>
     `
     div.innerHTML = DOMPurify.sanitize(template);
 
@@ -272,7 +251,7 @@ const getData = async () => {
 }
 
 // Revert to the default form title on reset
-myForm.addEventListener('reset', () => formHeading.textContent = '🐈 Share a Cat')
+myForm.addEventListener('reset', () => formHeading.textContent = '📚 Track a Study Session')
 
 // Reset the form when the create button is clicked. 
 createButton.addEventListener('click', myForm.reset())
