@@ -36,8 +36,8 @@
 
 <body>
   <header>
-    <h1>Manage Your Time</h1>
-    <h4>Log your study sessions effevtively</h4>
+    <h1>Managing Data</h1>
+    <h4>CRUD: a full data lifecycle</h4>
   </header>
   <section id="status">
     <p id="readyStatus">✅ MongoDB is Ready</p>
@@ -53,7 +53,7 @@
     id="formPopover"
     popover
   >
-    <h2>📚 Track Your Session</h2>
+    <h2>📚 Track a Study Session</h2>
     <p>Log your study session details</p>
     <form id="myForm">
       <!-- Hidden field to store ID for updates -->
@@ -128,19 +128,6 @@
       </fieldset>
 
       <fieldset>
-        <label for="endTime">End Time</label>
-        <input
-          required
-          type="text"
-          name="endTime"
-          id="endTime"
-          placeholder="e.g. 12pm"
-          autocomplete="off"
-        />
-        <small class="validation">End time is required</small>
-      </fieldset>
-
-      <fieldset>
         <label for="sessionGoal">Session Goal</label>
         <textarea
           placeholder="What do you want to accomplish?"
@@ -195,7 +182,7 @@
   </div>
 
   <main>
-    <h2>📚 Your Sessions</h2>
+    <h2>📚 Study Sessions</h2>
     <section id="contentArea"></section>
   </main>
 

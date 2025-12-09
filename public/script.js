@@ -179,9 +179,6 @@ const renderItem = (item) => {
         <div class="stat">
             <strong>Start Time:</strong> ${item.startTime}
         </div>
-        <div class="stat">
-            <strong>End Time:</strong> ${item.endTime}
-        </div>
     </div>
 
     <div class="item-info">
