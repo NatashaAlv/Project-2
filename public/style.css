@@ -124,11 +124,12 @@ button.cancel:hover {
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: rgb(15, 110, 117);
-    border: white 1px solid;
+    border: none;
     border-radius: 1rem;
     color: white;
     cursor: pointer;
     font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 #createButton:hover {
