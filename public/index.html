@@ -76,14 +76,20 @@
 
       <fieldset>
         <label for="subjectType">Subject Type</label>
-        <input
+        <select
           required
-          type="text"
           name="subjectType"
           id="subjectType"
-          placeholder="e.g. Art, Science, Math"
-          autocomplete="off"
-        />
+        >
+          <option value="" disabled selected>Select a subject</option>
+          <option value="Art">Art</option>
+          <option value="Science">Science</option>
+          <option value="Math">Math</option>
+          <option value="English">English</option>
+          <option value="History">History</option>
+          <option value="Computer Science">Computer Science</option>
+          <option value="Other">Other</option>
+        </select>
         <small class="validation">Subject type is required</small>
       </fieldset>
 
