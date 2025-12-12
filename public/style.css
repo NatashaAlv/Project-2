@@ -124,7 +124,7 @@ button.cancel:hover {
     padding: 1rem 2rem;
     font-size: 1.1rem;
     background: rgb(15, 110, 117);
-    border: none;
+    border: white 1px solid;
     border-radius: 1rem;
     color: white;
     cursor: pointer;
