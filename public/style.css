@@ -214,6 +214,34 @@ input[type=range] {
     padding: 0.5rem 0rem;
 }
 
+/* Slider container with min/max labels */
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.slider-container input[type=range] {
+    flex: 1;
+}
+
+.slider-min,
+.slider-max {
+    font-size: 0.9rem;
+    color: #666;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.slider-value {
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0.25rem;
+    color: rgb(3, 136, 3);
+}
+
 /* Color picker does not need padding at all */
 input[type=color] {
     width: 108px;

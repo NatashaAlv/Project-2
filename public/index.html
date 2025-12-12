@@ -149,29 +149,39 @@
 
       <fieldset>
         <label for="productiveTimeH">Productive Time (%)</label>
-        <input
-          required
-          type="range"
-          name="productiveTimeH"
-          id="productiveTimeH"
-          min="0"
-          max="100"
-          value="50"
-        />
+        <div class="slider-container">
+          <span class="slider-min">0</span>
+          <input
+            required
+            type="range"
+            name="productiveTimeH"
+            id="productiveTimeH"
+            min="0"
+            max="100"
+            value="50"
+          />
+          <span class="slider-max">100</span>
+        </div>
+        <output class="slider-value" for="productiveTimeH">50%</output>
         <small class="validation">Productive time is required</small>
       </fieldset>
 
       <fieldset>
         <label for="distractedTimeH">Distracted Time (%)</label>
-        <input
-          required
-          type="range"
-          name="distractedTimeH"
-          id="distractedTimeH"
-          min="0"
-          max="100"
-          value="50"
-        />
+        <div class="slider-container">
+          <span class="slider-min">0</span>
+          <input
+            required
+            type="range"
+            name="distractedTimeH"
+            id="distractedTimeH"
+            min="0"
+            max="100"
+            value="50"
+          />
+          <span class="slider-max">100</span>
+        </div>
+        <output class="slider-value" for="distractedTimeH">50%</output>
         <small class="validation">Distracted time is required</small>
       </fieldset>
 

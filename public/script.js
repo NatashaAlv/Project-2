@@ -250,8 +250,30 @@ const getData = async () => {
     }
 }
 
+// Update slider value displays
+const updateSliderValue = (slider) => {
+    const output = slider.parentElement.nextElementSibling
+    if (output && output.tagName === 'OUTPUT') {
+        output.textContent = `${slider.value}%`
+    }
+}
+
+// Add event listeners to sliders
+const productiveSlider = document.querySelector('#productiveTimeH')
+const distractedSlider = document.querySelector('#distractedTimeH')
+
+productiveSlider.addEventListener('input', (e) => updateSliderValue(e.target))
+distractedSlider.addEventListener('input', (e) => updateSliderValue(e.target))
+
 // Revert to the default form title on reset
-myForm.addEventListener('reset', () => formHeading.textContent = '📚 Track a Study Session')
+myForm.addEventListener('reset', () => {
+    formHeading.textContent = '📚 Track a Study Session'
+    // Reset slider displays after a brief delay to let the form reset
+    setTimeout(() => {
+        updateSliderValue(productiveSlider)
+        updateSliderValue(distractedSlider)
+    }, 0)
+})
 
 // Reset the form when the create button is clicked. 
 createButton.addEventListener('click', myForm.reset())
