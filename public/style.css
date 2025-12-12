@@ -123,7 +123,7 @@ button.cancel:hover {
     margin: 2rem auto;
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    background: rgb(3, 136, 3);
+    background: rgb(15, 110, 117);
     border: none;
     border-radius: 1rem;
     color: white;
@@ -132,7 +132,7 @@ button.cancel:hover {
 }
 
 #createButton:hover {
-    background: rgb(3, 103, 3);
+    background: rgb(11, 69, 74);
 }
 
 #status p {
