@@ -186,10 +186,10 @@ const renderItem = (item) => {
             <strong>Time Estimate:</strong> ${item.timeEstimateH}h
         </div>
         <div class="stat">
-            <strong>Productive Time:</strong> ${item.productiveTimeH}h
+            <strong>Productive Time:</strong> ${item.productiveTimeH}%
         </div>
         <div class="stat">
-            <strong>Distracted Time:</strong> ${item.distractedTimeH}h
+            <strong>Distracted Time:</strong> ${item.distractedTimeH}%
         </div>
     </div>
 

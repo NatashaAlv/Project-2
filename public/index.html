@@ -148,29 +148,29 @@
       </fieldset>
 
       <fieldset>
-        <label for="productiveTimeH">Productive Time (hours)</label>
+        <label for="productiveTimeH">Productive Time (%)</label>
         <input
           required
-          type="number"
+          type="range"
           name="productiveTimeH"
           id="productiveTimeH"
           min="0"
-          step="0.5"
-          placeholder="e.g. 1"
+          max="100"
+          value="50"
         />
         <small class="validation">Productive time is required</small>
       </fieldset>
 
       <fieldset>
-        <label for="distractedTimeH">Distracted Time (hours)</label>
+        <label for="distractedTimeH">Distracted Time (%)</label>
         <input
           required
-          type="number"
+          type="range"
           name="distractedTimeH"
           id="distractedTimeH"
           min="0"
-          step="0.5"
-          placeholder="e.g. 4"
+          max="100"
+          value="50"
         />
         <small class="validation">Distracted time is required</small>
       </fieldset>
